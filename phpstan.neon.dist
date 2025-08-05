@@ -5,8 +5,14 @@ parameters:
     level: 5
     paths:
         - src
-        - config
-        - database
     tmpDir: build/phpstan
-    checkOctaneCompatibility: true
-    checkModelProperties: true
+
+    larastan:
+        enable_model_properties: true
+        checkModelProperties: true
+        checkOctaneCompatibility: true
+        checkAlwaysMissingCommandLineArguments: false
+
+services:
+    -   class: Larastan\Larastan\Rules\ConsoleCommand\UndefinedArgumentOrOptionRule
+        autowired: false
