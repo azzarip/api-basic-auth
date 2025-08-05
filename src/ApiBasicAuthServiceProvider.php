@@ -5,7 +5,6 @@ namespace Azzarip\ApiBasicAuth;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Http;
 use Spatie\LaravelPackageTools\Package;
-use Azzarip\ApiBasicAuth\Commands\ApiBasicAuthCommand;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class ApiBasicAuthServiceProvider extends PackageServiceProvider
@@ -21,7 +20,8 @@ class ApiBasicAuthServiceProvider extends PackageServiceProvider
             ->name('api-basic-auth');
     }
 
-    public function packageBooted() {
+    public function packageBooted()
+    {
         $router = $this->app->make(Router::class);
         $router->aliasMiddleware('api.auth', ApiBasicAuthMiddleware::class);
 
@@ -29,9 +29,9 @@ class ApiBasicAuthServiceProvider extends PackageServiceProvider
             $password = config("services.{$user}.outbound_password");
             $baseUrl = rtrim(config("services.{$user}.entrypoint"), '/');
 
-        return Http::withBasicAuth($user, $password)
-            ->retry(5, 100)
-            ->baseUrl($baseUrl);
-    });
+            return Http::withBasicAuth($user, $password)
+                ->retry(5, 100)
+                ->baseUrl($baseUrl);
+        });
     }
 }

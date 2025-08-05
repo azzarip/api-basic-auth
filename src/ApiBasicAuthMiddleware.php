@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ApiBasicAuthMiddleware
-{ 
-/**
+{
+    /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
@@ -27,4 +27,3 @@ class ApiBasicAuthMiddleware
         return $next($request);
     }
 }
-

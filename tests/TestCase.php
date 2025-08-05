@@ -2,9 +2,9 @@
 
 namespace Azzarip\ApiBasicAuth\Tests;
 
+use Azzarip\ApiBasicAuth\ApiBasicAuthServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Azzarip\ApiBasicAuth\ApiBasicAuthServiceProvider;
 
 class TestCase extends Orchestra
 {

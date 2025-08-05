@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Illuminate\Support\Facades\Http;
 
@@ -13,7 +13,7 @@ it('sends a request using the custom Http::user() macro', function () {
     Http::assertSent(function ($request) {
         return
             $request->url() === 'https://crm.example.com/login' &&
-            $request->hasHeader('Authorization', 'Basic ' . base64_encode('crm:secret123')) &&
+            $request->hasHeader('Authorization', 'Basic '.base64_encode('crm:secret123')) &&
             $request->method() === 'GET';
     });
 });

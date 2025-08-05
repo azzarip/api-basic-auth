@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 use Illuminate\Support\Facades\Route;
 
-beforeEach(function() {
+beforeEach(function () {
     Route::get('/test-protected', function () {
         return response()->json(['message' => 'Authorized']);
     })->middleware('api.auth:myuser');
@@ -19,7 +19,7 @@ it('denies access without basic auth', function () {
 
 it('denies access with wrong credentials', function () {
     get('/test-protected', [
-        'Authorization' => 'Basic ' . base64_encode('wronguser:wrongpass'),
+        'Authorization' => 'Basic '.base64_encode('wronguser:wrongpass'),
     ])
         ->assertStatus(401)
         ->assertSee('Unauthorized');
@@ -30,7 +30,7 @@ it('allows access with correct credentials', function () {
     $password = config("services.{$username}.inbound_password");
 
     get('/test-protected', [
-        'Authorization' => 'Basic ' . base64_encode("{$username}:{$password}"),
+        'Authorization' => 'Basic '.base64_encode("{$username}:{$password}"),
     ])
         ->assertStatus(200)
         ->assertJson(['message' => 'Authorized']);
