@@ -27,7 +27,7 @@ class ApiBasicAuthServiceProvider extends PackageServiceProvider
 
         Http::macro('user', function (string $user) {
             $password = config("services.{$user}.outbound_password");
-            $baseUrl = rtrim(config("services.{$user}.entrypoint"), '/');
+            $baseUrl = rtrim(config("services.{$user}.endpoint"), '/');
 
             return Http::withBasicAuth($user, $password)
                 ->retry(5, 100)
