@@ -6,13 +6,5 @@ parameters:
     paths:
         - src
     tmpDir: build/phpstan
-
-    larastan:
-        enable_model_properties: true
-        checkModelProperties: true
-        checkOctaneCompatibility: true
-        checkAlwaysMissingCommandLineArguments: false
-
-services:
-    -   class: Larastan\Larastan\Rules\ConsoleCommand\UndefinedArgumentOrOptionRule
-        autowired: false
+    checkOctaneCompatibility: true
+    checkModelProperties: true
