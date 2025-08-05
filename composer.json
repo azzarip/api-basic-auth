@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "azzarip/api-basic-auth",
+    "description": "Basic auth system for intraserver api communication",
     "keywords": [
-        ":vendor_name",
+        "Azzarip",
         "laravel",
-        ":package_slug"
+        "api-basic-auth"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/azzarip/api-basic-auth",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Azzarip",
+            "email": "paride21azzari@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Azzarip\\ApiBasicAuth\\": "src/",
+            "Azzarip\\ApiBasicAuth\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Azzarip\\ApiBasicAuth\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Azzarip\\ApiBasicAuth\\ApiBasicAuthServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "ApiBasicAuth": "Azzarip\\ApiBasicAuth\\Facades\\ApiBasicAuth"
             }
         }
     },
